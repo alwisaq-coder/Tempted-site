@@ -3,254 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TEMPTED | Fashion Store Egypt</title>
+    <title>Our Story | TEMPTED</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet">
     <style>
-        /* ===== SYSTEM RESET & GLOBAL STYLING ===== */
+        /* Shared CSS template block */
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        :root {
-            --black: #0a0a0a;
-            --white: #ffffff;
-            --cream: #f8f5f0;
-            --rose: #c4727f;
-            --gray: #888;
-            --gray-light: #e5e5e5;
-            --gray-dark: #333;
-            --bg: #faf9f7;
-        }
-        html { scroll-behavior: smooth; }
-        body {
-            font-family: 'Montserrat', sans-serif;
-            color: var(--black);
-            background: var(--white);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
+        :root { --black: #0a0a0a; --white: #ffffff; --cream: #f8f5f0; --rose: #c4727f; --gray: #888; --gray-light: #e5e5e5; --gray-dark: #333; --bg: #faf9f7; }
+        body { font-family: 'Montserrat', sans-serif; color: var(--black); background: var(--white); line-height: 1.6; overflow-x: hidden; }
         a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
-        ul { list-style: none; }
-        img { max-width: 100%; display: block; }
-
-        /* ===== ANNOUNCEMENT & NAVIGATION ===== */
-        .navbar {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-            background: rgba(255,255,255,0.98);
-            box-shadow: 0 1px 0 rgba(0,0,0,0.06);
-        }
-        .announcement {
-            background: var(--black);
-            color: var(--white);
-            text-align: center;
-            padding: 8px 20px;
-            font-size: 0.68rem;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-        }
-        .nav-wrapper {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 15px 40px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .logo {
-            font-size: 1.6rem;
-            font-weight: 700;
-            letter-spacing: 10px;
-            text-transform: uppercase;
-        }
+        .navbar { position: fixed; top: 0; width: 100%; z-index: 1000; background: rgba(255,255,255,0.98); box-shadow: 0 1px 0 rgba(0,0,0,0.06); }
+        .announcement { background: var(--black); color: var(--white); text-align: center; padding: 8px 20px; font-size: 0.68rem; letter-spacing: 3px; text-transform: uppercase; }
+        .nav-wrapper { max-width: 1400px; margin: 0 auto; padding: 15px 40px; display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.6rem; font-weight: 700; letter-spacing: 10px; text-transform: uppercase; }
         .logo .dot { color: var(--rose); }
         .nav-container { display: flex; align-items: center; gap: 30px; }
         .nav-menu { display: flex; gap: 30px; align-items: center; }
         .nav-link { font-size: 0.68rem; letter-spacing: 3px; text-transform: uppercase; font-weight: 500; }
         .nav-link:hover, .nav-link.active { color: var(--rose); }
-        
-        /* Mobile Menu Toggle button */
-        .mobile-menu-toggle {
-            display: none;
-            background: none;
-            border: none;
-            cursor: pointer;
-            padding: 4px;
-        }
+        .mobile-menu-toggle { display: none; background: none; border: none; cursor: pointer; padding: 4px; }
         .mobile-menu-toggle svg { width: 24px; height: 24px; fill: none; stroke: var(--black); stroke-width: 1.5; }
-
-        .nav-icon-cart {
-            cursor: pointer;
-            position: relative;
-            display: flex;
-            align-items: center;
-        }
+        .nav-icon-cart { cursor: pointer; position: relative; display: flex; align-items: center; }
         .nav-icon-cart svg { width: 22px; height: 22px; stroke: var(--black); stroke-width: 1.5; fill: none; }
-        .badge {
-            position: absolute;
-            top: -6px;
-            right: -8px;
-            background: var(--rose);
-            color: var(--white);
-            font-size: 0.55rem;
-            width: 16px;
-            height: 16px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 600;
-        }
-
-        /* ===== HERO SECTION ===== */
-        .hero {
-            height: 75vh;
-            background: url('https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=1920&fit=crop') center/cover no-repeat;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            margin-top: 75px;
-        }
-        .hero-overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.25); }
-        .hero-content { position: relative; text-align: center; color: var(--white); z-index: 2; padding: 0 20px; }
-        .hero-title { font-family: 'Playfair Display', serif; font-size: 3.5rem; text-transform: uppercase; letter-spacing: 4px; margin-bottom: 10px; }
-        .hero-desc { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-style: italic; margin-bottom: 30px; }
-        .btn-discover {
-            display: inline-block;
-            background: var(--white);
-            color: var(--black);
-            padding: 14px 32px;
-            font-size: 0.7rem;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-        .btn-discover:hover { background: var(--black); color: var(--white); }
-
-        /* ===== SECTION CONFIGURATIONS ===== */
-        .section { padding: 90px 40px; max-width: 1400px; margin: 0 auto; text-align: center; }
+        .badge { position: absolute; top: -6px; right: -8px; background: var(--rose); color: var(--white); font-size: 0.55rem; width: 16px; height: 16px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 600; }
+        
+        .section { padding: 90px 40px; max-width: 1400px; margin: 110px auto 0; text-align: center; }
         .section-title { font-family: 'Playfair Display', serif; font-size: 2.2rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 8px; }
         .section-line { width: 50px; height: 1.5px; background: var(--rose); margin: 0 auto 45px; }
+        .legal-wrapper { max-width: 900px; margin: 0 auto; text-align: left; }
+        .legal-card { margin-bottom: 40px; }
+        .legal-card p { font-size: 0.95rem; color: var(--gray-dark); line-height: 1.9; margin-bottom: 20px; }
 
-        /* ===== SLIDING SHOPPING CART DRAWERS ===== */
-        .cart-sidebar {
-            position: fixed;
-            top: 0;
-            right: -420px;
-            width: 400px;
-            max-width: 90%;
-            height: 100%;
-            background: var(--white);
-            z-index: 9999;
-            box-shadow: -5px 0 30px rgba(0,0,0,0.1);
-            display: flex;
-            flex-direction: column;
-            transition: right 0.4s cubic-bezier(0.77, 0, 0.175, 1);
-        }
+        /* Sidebar styles */
+        .cart-sidebar { position: fixed; top: 0; right: -420px; width: 400px; max-width: 90%; height: 100%; background: var(--white); z-index: 9999; box-shadow: -5px 0 30px rgba(0,0,0,0.1); display: flex; flex-direction: column; transition: right 0.4s cubic-bezier(0.77, 0, 0.175, 1); }
         .cart-sidebar.active { right: 0; }
-        .cart-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 25px 30px;
-            border-bottom: 1px solid var(--gray-light);
-        }
+        .cart-header { display: flex; justify-content: space-between; align-items: center; padding: 25px 30px; border-bottom: 1px solid var(--gray-light); }
         .cart-header h3 { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 2px; }
         .cart-close { cursor: pointer; font-size: 1.5rem; line-height: 1; }
         .cart-items { flex: 1; overflow-y: auto; padding: 20px 30px; }
-        
-        .cart-item {
-            display: flex;
-            gap: 15px;
-            padding: 15px 0;
-            border-bottom: 1px solid var(--gray-light);
-            align-items: center;
-        }
+        .cart-item { display: flex; gap: 15px; padding: 15px 0; border-bottom: 1px solid var(--gray-light); align-items: center; }
         .cart-item-img { width: 70px; aspect-ratio: 3/4; object-fit: cover; }
         .cart-item-details { flex: 1; text-align: left; }
         .cart-item-name { font-size: 0.8rem; font-weight: 500; }
         .cart-item-variant { font-size: 0.7rem; color: var(--gray); margin-bottom: 5px; }
         .cart-item-price { font-size: 0.85rem; font-weight: 600; }
-        
-        /* Quantity Box inside Cart */
-        .cart-qty-control {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-top: 8px;
-        }
-        .qty-btn {
-            background: var(--cream);
-            border: none;
-            width: 22px;
-            height: 22px;
-            cursor: pointer;
-            font-weight: 600;
-            font-size: 0.8rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+        .cart-qty-control { display: flex; align-items: center; gap: 10px; margin-top: 8px; }
+        .qty-btn { background: var(--cream); border: none; width: 22px; height: 22px; cursor: pointer; font-weight: 600; font-size: 0.8rem; display: flex; align-items: center; justify-content: center; }
         .cart-item-remove { font-size: 0.65rem; text-decoration: underline; color: var(--gray); cursor: pointer; margin-left: auto; }
-
         .cart-footer { padding: 25px 30px; border-top: 1px solid var(--gray-light); }
         .cart-total-row { display: flex; justify-content: space-between; margin-bottom: 10px; font-weight: 600; font-size: 0.95rem; }
         .cart-shipping-note { font-size: 0.72rem; color: var(--gray); margin-bottom: 15px; text-align: left; }
-        
-        .btn-checkout {
-            display: block;
-            width: 100%;
-            background: #25D366;
-            color: var(--white);
-            text-align: center;
-            padding: 14px;
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            font-weight: 600;
-            border: none;
-            border-radius: 2px;
-            cursor: pointer;
-        }
+        .btn-checkout { display: block; width: 100%; background: #25D366; color: var(--white); text-align: center; padding: 14px; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; font-weight: 600; border: none; border-radius: 2px; cursor: pointer; }
         .btn-checkout:hover { background: #1ebd54; }
         .cart-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.4); z-index: 9998; display: none; }
         .cart-overlay.active { display: block; }
         .cart-empty-message { color: var(--gray); font-size: 0.85rem; padding: 40px 0; }
 
-        /* ===== FOOTER BLOCK ===== */
         .footer { background: var(--black); color: var(--white); padding: 70px 40px; margin-top: 60px; }
         .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 40px; max-width: 1400px; margin: 0 auto; text-align: left; }
         .footer-col h4 { font-size: 0.75rem; text-transform: uppercase; margin-bottom: 20px; letter-spacing: 2px; }
         .footer-col p, .footer-col a { font-size: 0.82rem; color: #b5b5b5; line-height: 1.8; }
         .footer-col a:hover { color: var(--white); }
         .footer-bottom { max-width: 1400px; margin: 40px auto 0; padding-top: 25px; border-top: 1px solid #222; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 20px; font-size: 0.78rem; color: #b5b5b5; }
-
-        /* ===== TOAST ALERTS ===== */
         .toast { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%) translateY(100px); background: var(--black); color: var(--white); padding: 14px 28px; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 2px; z-index: 100000; transition: transform 0.3s ease; box-shadow: 0 4px 20px rgba(0,0,0,0.2); display: flex; align-items: center; gap: 10px; pointer-events: none; }
         .toast.show { transform: translateX(-50%) translateY(0); }
-        .toast svg { width: 16px; height: 16px; stroke: #4CAF50; fill: none; stroke-width: 2; }
 
-        /* ===== RESPONSIVE MEDIA BREAKPOINTS ===== */
         @media (max-width: 768px) {
             .mobile-menu-toggle { display: block; }
-            .nav-menu {
-                position: fixed;
-                top: 75px;
-                left: -100%;
-                width: 100%;
-                height: calc(100vh - 75px);
-                background: var(--white);
-                flex-direction: column;
-                gap: 40px;
-                padding: 50px 40px;
-                align-items: flex-start;
-                transition: left 0.4s ease;
-                box-shadow: 0 10px 15px rgba(0,0,0,0.05);
-            }
+            .nav-menu { position: fixed; top: 75px; left: -100%; width: 100%; height: calc(100vh - 75px); background: var(--white); flex-direction: column; gap: 40px; padding: 50px 40px; align-items: flex-start; transition: left 0.4s ease; box-shadow: 0 10px 15px rgba(0,0,0,0.05); }
             .nav-menu.mobile-active { left: 0; }
             .section { padding: 60px 20px; }
-            .hero-title { font-size: 2.4rem; }
         }
     </style>
 </head>
@@ -268,7 +89,7 @@
                 <span>Subtotal:</span>
                 <span id="cartSubtotalAmount">EGP 0</span>
             </div>
-            <div class="cart-total-row" id="shippingRow">
+            <div class="cart-total-row">
                 <span>Shipping:</span>
                 <span id="cartShippingAmount">EGP 0</span>
             </div>
@@ -286,15 +107,15 @@
             ✦ Free Delivery on Orders Over EGP 1,500 ✦ Pay on Delivery Across Egypt ✦
         </div>
         <div class="nav-wrapper">
-            <button class="mobile-menu-toggle" onclick="toggleMobileMenu()" aria-label="Toggle Menu">
+            <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">
                 <svg viewBox="0 0 24 24"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
             </button>
             <a href="index.html" class="logo">TEMPTED<span class="dot">.</span></a>
             <div class="nav-container">
                 <div class="nav-menu" id="navMenu">
-                    <a href="index.html" class="nav-link active">Home</a>
+                    <a href="index.html" class="nav-link">Home</a>
                     <a href="shop.html" class="nav-link">Shop All</a>
-                    <a href="about.html" class="nav-link">About Us</a>
+                    <a href="about.html" class="nav-link active">About Us</a>
                     <a href="policies.html" class="nav-link">Policies</a>
                 </div>
                 <div class="nav-icon-cart" onclick="toggleCartSidebar()">
@@ -305,14 +126,16 @@
         </div>
     </nav>
 
-    <header class="hero">
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-            <h1 class="hero-title">Effortless Elegance</h1>
-            <p class="hero-desc">Curated minimalist luxury updates for the modern woman</p>
-            <a href="shop.html" class="btn-discover">Discover The Collection</a>
+    <section class="section" id="about" style="background-color: var(--bg); min-height: 50vh;">
+        <h2 class="section-title">Our Story</h2>
+        <div class="section-line"></div>
+        <div class="legal-wrapper">
+            <div class="legal-card">
+                <p>Born in Cairo, Egypt with a burning passion for design, <strong>TEMPTED</strong> was created to redefine contemporary luxury choices for the modern woman. We believe that what you choose to wear serves as an explicit visual expansion of your inner confidence.</p>
+                <p>Our seasonal design collections elegantly bridge sleek modern shapes with unparalleled local attention to detail. Every textile option is tested rigorously for fit, guaranteeing an exquisite experience right out of our custom presentation boxes.</p>
+            </div>
         </div>
-    </header>
+    </section>
 
     <footer class="footer">
         <div class="footer-grid">
@@ -344,40 +167,20 @@
 
     <script>
         let bagStateMemory = JSON.parse(localStorage.getItem('tempted_bag_system')) || [];
-        const FLAT_SHIPPING_FEE = 100; 
+        const FLAT_SHIPPING_FEE = 100;
 
-        document.addEventListener('DOMContentLoaded', () => {
-            renderBagDOMTree();
-        });
-
-        function toggleCartSidebar() {
-            document.getElementById('cartSidebar').classList.toggle('active');
-            document.getElementById('cartOverlay').classList.toggle('active');
-        }
-
-        function toggleMobileMenu() {
-            document.getElementById('navMenu').classList.toggle('mobile-active');
-        }
-
-        function saveBagState() {
-            localStorage.setItem('tempted_bag_system', JSON.stringify(bagStateMemory));
-        }
+        document.addEventListener('DOMContentLoaded', () => { renderBagDOMTree(); });
+        function toggleCartSidebar() { document.getElementById('cartSidebar').classList.toggle('active'); document.getElementById('cartOverlay').classList.toggle('active'); }
+        function toggleMobileMenu() { document.getElementById('navMenu').classList.toggle('mobile-active'); }
+        function saveBagState() { localStorage.setItem('tempted_bag_system', JSON.stringify(bagStateMemory)); }
 
         function updateItemQuantity(index, quantityChange) {
             bagStateMemory[index].qty += quantityChange;
-            if (bagStateMemory[index].qty <= 0) {
-                bagStateMemory.splice(index, 1);
-                triggerSuccessToast("Item cleared from bag");
-            }
-            renderBagDOMTree();
-            saveBagState();
+            if (bagStateMemory[index].qty <= 0) { bagStateMemory.splice(index, 1); triggerSuccessToast("Item cleared from bag"); }
+            renderBagDOMTree(); saveBagState();
         }
-
         function deleteMemoryItem(index) {
-            bagStateMemory.splice(index, 1);
-            renderBagDOMTree();
-            saveBagState();
-            triggerSuccessToast("Item cleared from bag");
+            bagStateMemory.splice(index, 1); renderBagDOMTree(); saveBagState(); triggerSuccessToast("Item cleared from bag");
         }
 
         function renderBagDOMTree() {
@@ -389,20 +192,15 @@
             const grandTotalAmountLabel = document.getElementById('cartGrandTotalAmount');
             const shippingThresholdNote = document.getElementById('shippingThresholdNote');
 
-            if(!mountPoint) return;
-            mountPoint.innerHTML = "";
-            
-            let netTotalCalculated = 0;
-            let netItemVolume = 0;
+            if(!mountPoint) return; mountPoint.innerHTML = "";
+            let netTotalCalculated = 0; let netItemVolume = 0;
 
             if (bagStateMemory.length === 0) {
                 mountPoint.innerHTML = `<div class="cart-empty-message">Your shopping bag is completely empty.</div>`;
                 shippingThresholdNote.textContent = "Add items to unlock free shipping.";
             } else {
                 bagStateMemory.forEach((item, index) => {
-                    netTotalCalculated += (item.price * item.qty);
-                    netItemVolume += item.qty;
-
+                    netTotalCalculated += (item.price * item.qty); netItemVolume += item.qty;
                     const nodeRow = document.createElement('div');
                     nodeRow.className = "cart-item";
                     nodeRow.innerHTML = `
@@ -421,53 +219,35 @@
                     `;
                     mountPoint.appendChild(nodeRow);
                 });
-
                 if (netTotalCalculated >= 1500) {
                     shippingThresholdNote.textContent = "🎉 Congratulations! You have unlocked Free Shipping.";
-                    shippingAmountLabel.textContent = "FREE";
-                    grandTotalAmountLabel.textContent = `EGP ${netTotalCalculated.toLocaleString()}`;
+                    shippingAmountLabel.textContent = "FREE"; grandTotalAmountLabel.textContent = `EGP ${netTotalCalculated.toLocaleString()}`;
                 } else {
                     let clearanceGap = 1500 - netTotalCalculated;
                     shippingThresholdNote.textContent = `Spend EGP ${clearanceGap.toLocaleString()} more to qualify for FREE delivery.`;
-                    shippingAmountLabel.textContent = `EGP ${FLAT_SHIPPING_FEE}`;
-                    grandTotalAmountLabel.textContent = `EGP ${(netTotalCalculated + FLAT_SHIPPING_FEE).toLocaleString()}`;
+                    shippingAmountLabel.textContent = `EGP ${FLAT_SHIPPING_FEE}`; grandTotalAmountLabel.textContent = `EGP ${(netTotalCalculated + FLAT_SHIPPING_FEE).toLocaleString()}`;
                 }
             }
-
-            totalCountBadge.textContent = netItemVolume;
-            generalTitleLabel.textContent = `Your Bag (${netItemVolume})`;
-            subtotalAmountLabel.textContent = `EGP ${netTotalCalculated.toLocaleString()}`;
-            if(bagStateMemory.length === 0) {
-                shippingAmountLabel.textContent = "EGP 0";
-                grandTotalAmountLabel.textContent = "EGP 0";
-            }
+            totalCountBadge.textContent = netItemVolume; generalTitleLabel.textContent = `Your Bag (${netItemVolume})`; subtotalAmountLabel.textContent = `EGP ${netTotalCalculated.toLocaleString()}`;
+            if(bagStateMemory.length === 0) { shippingAmountLabel.textContent = "EGP 0"; grandTotalAmountLabel.textContent = "EGP 0"; }
         }
 
         function checkoutToWhatsApp() {
-            if (bagStateMemory.length === 0) {
-                triggerSuccessToast("Please add items to your bag first!");
-                return;
-            }
-
+            if (bagStateMemory.length === 0) { triggerSuccessToast("Please add items to your bag first!"); return; }
             let messageString = "Hi TEMPTED! I would like to place an order for the following items:\n\n";
             let netCalculatedPrice = 0;
-
             bagStateMemory.forEach((item, idx) => {
-                let costCalculation = item.price * item.qty;
-                netCalculatedPrice += costCalculation;
+                let costCalculation = item.price * item.qty; netCalculatedPrice += costCalculation;
                 messageString += `${idx + 1}. 🛍️ ${item.name}\n   Size: ${item.size}\n   Quantity: ${item.qty}\n   Price: EGP ${costCalculation.toLocaleString()}\n\n`;
             });
-
             let finalShippingCost = netCalculatedPrice >= 1500 ? 0 : FLAT_SHIPPING_FEE;
             let finalGrandTotal = netCalculatedPrice + finalShippingCost;
-
             messageString += `---------------------------\n`;
             messageString += `💰 *Subtotal:* EGP ${netCalculatedPrice.toLocaleString()}\n`;
             messageString += `🚚 *Shipping:* ${finalShippingCost === 0 ? "FREE" : "EGP " + finalShippingCost}\n`;
             messageString += `💵 *Total Order Value:* EGP ${finalGrandTotal.toLocaleString()}\n\n`;
             messageString += `📍 Delivery Method: Doorstep Shipping Across Egypt\n`;
             messageString += `💳 Payment Option: Pay on Delivery (COD)`;
-
             const secureWhatsAppURL = `https://wa.me/201097551754?text=${encodeURIComponent(messageString)}`;
             window.open(secureWhatsAppURL, '_blank');
         }
