@@ -29,7 +29,7 @@
         .section { padding: 90px 40px; max-width: 1400px; margin: 110px auto 0; text-align: center; }
         .section-title { font-family: 'Playfair Display', serif; font-size: 2.2rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 8px; }
         .section-line { width: 50px; height: 1.5px; background: var(--rose); margin: 0 auto 45px; }
-        .legal- { max-width: 900px; margin: 0 auto; text-align: left; }
+        .legal-wrapper { max-width: 900px; margin: 0 auto; text-align: left; }
         .legal-card { margin-bottom: 40px; }
         .legal-card h3 { font-family: 'Playfair Display', serif; font-size: 1.3rem; text-transform: uppercase; margin-bottom: 12px; }
         .legal-card p { font-size: 0.88rem; color: var(--gray-dark); line-height: 1.8; margin-bottom: 10px; }
@@ -111,17 +111,17 @@
         <div class="announcement">
             ✦ Free Delivery on Orders Over EGP 1,500 ✦ Pay on Delivery Across Egypt ✦
         </div>
-        <div class="nav-">
+        <div class="nav-wrapper">
             <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">
                 <svg viewBox="0 0 24 24"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
             </button>
-            <a href="index.html" class="logo">TEMPTED<span class="dot">.</span></a>
+            <a href="/" class="logo">TEMPTED<span class="dot">.</span></a>
             <div class="nav-container">
                 <div class="nav-menu" id="navMenu">
-                    <a href="index.html" class="nav-link">Home</a>
-                    <a href="shop.html" class="nav-link">Shop All</a>
-                    <a href="about.html" class="nav-link">About Us</a>
-                    <a href="policies.html" class="nav-link active">Policies</a>
+                    <a href="/" class="nav-link">Home</a>
+                    <a href="/shop/" class="nav-link">Shop All</a>
+                    <a href="/about/" class="nav-link">About Us</a>
+                    <a href="/policies/" class="nav-link active">Policies</a>
                 </div>
                 <div class="nav-icon-cart" onclick="toggleCartSidebar()">
                     <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
@@ -145,15 +145,25 @@
                     <li><strong>Fulfillment:</strong> Our courier partners will contact you via phone to coordinate the doorstep drop-off time.</li>
                 </ul>
             </div>
+            
             <div class="legal-card">
-                <h3>Returns & Exchanges</h3>
-                <p>We want your fit configuration to feel absolutely perfect! TEMPTED structures all local fulfillment tasks under a clear <strong>14-day tracking policy</strong> from your package's doorstep delivery date.</p>
+                <h3>Refund Policy</h3>
+                <p>Your satisfaction is our primary priority. We issue complete refunds if you choose not to keep your garments.</p>
                 <ul>
-                    <li>Garments must arrive fully clean, unworn, unwashed, and tracking all intact original security tag attachments.</li>
-                    <li>Slight address variations or exchange collection tracking queries can be coordinated smoothly over our main WhatsApp routing infrastructure.</li>
-                    <li>Refund parameters for local Cash on Delivery tasks are settled smoothly over Vodafone Cash options or direct bank account transits inside 5 clear banking days.</li>
+                    <li><strong>Processing Windows:</strong> Once approved, item payments are parsed directly to your source accounts within 5 local banking days.</li>
+                    <li><strong>Payout Channels:</strong> Cash on Delivery configurations are safely transferred via Vodafone Cash options or Direct Bank Accounts. Credit card payments are automatically processed back via our gateway provider channels.</li>
                 </ul>
             </div>
+
+            <div class="legal-card">
+                <h3>Exchange Policy</h3>
+                <p>We allow garment sizing modifications under a strict <strong>14-day tracking policy</strong> starting from your doorstep courier delivery confirmation timestamp.</p>
+                <ul>
+                    <li><strong>Conditions:</strong> Clothing items must remain completely unworn, unwashed, and include all original, intact security tag attachments inside the box.</li>
+                    <li><strong>How to initiate:</strong> Simply message our dedicated customer routing channels via WhatsApp to schedule an exchange courier request.</li>
+                </ul>
+            </div>
+
             <div class="legal-card">
                 <h3>Privacy Shield</h3>
                 <p>We only request explicit identifier data inputs (such as delivery contact tags, physical regional addresses, and telephone values) that are functionally imperative to process doorstep logistics with local courier operations across Egyptian Governorates.</p>
